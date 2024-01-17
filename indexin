@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+    <style>
+        .hidden { display: none; }
+        form div { margin-bottom: 10px; }
+        body { text-align: right; } 
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Introduction Page -->
+<div id="introPage">
+    <h2>Introduction</h2>
+    <p>השאלון מורכב משני חלקים, כאשר החלק הראשון מוקדש להגדרת הערכים שלך. החלק השני מתייחס לאיך בפועל אתה מתנהג בהתאם לערכים שלך.</p>
+    <p>ההנחיות למילוי השאלון- עדיף למלא לבד, כדי שאפשר יהיה לענות בכנות ככל שניתן, לשים בצד כמה שניתן לחצים חברתיים ואת האמירות המנטליות של "צריך" ו"צריך", זה בינך לבין עצמך. אם אתם מוצאים את עצמכם מלקים את עצמכם במהלך המילוי, צעדו אחורה והזכירו לעצמכם שערכים הם מה שאתם בוחרים לעבוד לקראתו, לא מה שהמוח אומר שאתם צריכים לעשות או לדאוג לו או משהו אחר.</p>
+    <p>החלק הראשון השאלון כולל 12 תחומי חיים שיכולים להוות ערכים עבור אנשים מסוימים. דרג את החשיבות של כל תחום (על ידי הקף מספר) בסולם של 1-10. 1 אומר שהתחום אינו חשוב כלל. 10 אומר שהתחום חשוב מאוד. לא לכולם יהיו ערכים בולטים בכל התחומים הללו, או שיהיה אכפת מכל התחומים באותה מידה. דרג כל תחום לפי תחושת החשיבות האישית שלך.</p>
+    <p>בחלק השני של השאלון נרצה לתת דירוג של מידת עקביות הפעולות שלנו עם הערכים בכל אחד מהתחומים הללו. אנחנו לא שואלים על האידיאל בכל תחום. אנחנו גם לא שואלים מה אחרים חושבים עליך. כולם מצליחים יותר בתחומים מסוימים מאשר באחרים. אנשים גם מצליחים לפעמים יותר מאשר בזמנים אחרים. אנחנו רוצים לדעת איך אתם חושבים שהלך לכם במהלך השבוע האחרון.</p>
+    <p>זהו תהליך גילוי לא תהליך ביקורת, ואחרי הכל, יצאתם למסע הזה - תנו לעצמכם קצת קרדיט על כך. אתם כאן כדי לאמץ את השינוי.</p>
+    <p>אם ציינתם בלא מעט מהתחומים כנמוכים בחשיבותם עבורכם, עליכם לשקול האם הייתם כנים עם עצמכם לגביהם. זה הגיוני לחלוטין שיהיו כמה תחומים שאינם חשובים. אולי לא אכפת לנו מהקהילתיות, או מהסביבה, ואם אין לנו ילדים, אולי לא אכפת לך משיטות ההורות של אחרים וכו'. עם זאת, מחקרים מראים שאם רבים מהתחומים הללו אינם חשובים, זה מרמז על מצוקה פסיכולוגית. השתמש בהערכה זו כהזדמנות להודות בפני עצמך בערכים האמיתיים שלך.</p>
+    <button onclick="showPage('surveyPage1')">התחלת הסקר</button>
+</div>
+
+
+<!-- Second Set of Questions -->
+<div id="surveyPage2" class="hidden">
+    <h2>דרגו את מידת עקביות הפעולות שלכם עם הערכים בכל אחד מהתחומים הללו לפי השבוע האחרון בסולם של 1-10</h2>
+    <form id="form2">
+        <div class="question">
+            <p>משפחה (מלבד נישואים או זוגיות):</p>
+            <div class="scale">
+                <label><input type="radio" name="family2" value="1"> 1</label>
+                <label><input type="radio" name="family2" value="2"> 2</label>
+                <!-- Repeat labels for values 3 through 10 -->
+                <label><input type="radio" name="family2" value="3"> 3</label>
+                <label><input type="radio" name="family2" value="4"> 4</label>
+                <label><input type="radio" name="family2" value="5"> 5</label>
+                <label><input type="radio" name="family2" value="6"> 6</label>
+                <label><input type="radio" name="family2" value="7"> 7</label>
+                <label><input type="radio" name="family2" value="8"> 8</label>
+                <label><input type="radio" name="family2" value="9"> 9</label>
+                <label><input type="radio" name="family2" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>נישואים/זוגיות/יחסים:</p>
+            <div class="scale">
+                <label><input type="radio" name="marriage2" value="1"> 1</label>
+                <label><input type="radio" name="marriage2" value="2"> 2</label>
+                <!-- Repeat labels for values 3 through 10 -->
+                <label><input type="radio" name="marriage2" value="3"> 3</label>
+                <label><input type="radio" name="marriage2" value="4"> 4</label>
+                <label><input type="radio" name="marriage2" value="5"> 5</label>
+                <label><input type="radio" name="marriage2" value="6"> 6</label>
+                <label><input type="radio" name="marriage2" value="7"> 7</label>
+                <label><input type="radio" name="marriage2" value="8"> 8</label>
+                <label><input type="radio" name="marriage2" value="9"> 9</label>
+                <label><input type="radio" name="marriage2" value="10"> 10</label>
+            </div>
+        </div>
+        <!-- Repeat the structure for additional questions -->
+        <div class="question">
+            <p>הורות:</p>
+            <div class="scale">
+                <!-- Radio inputs for values 1 through 10 -->
+                <label><input type="radio" name="parenting2" value="1"> 1</label>
+                <label><input type="radio" name="parenting2" value="2"> 2</label>
+                <!-- ... -->
+                <label><input type="radio" name="parenting2" value="10"> 10</label>
+            </div>
+        </div>
+        <!-- Additional questions structured similarly -->
+        <input type="submit" value="לעמוד הבא">
+    </form>
+</div>
+
+<style>
+    .hidden { display: none; }
+    body { text-align: right; } 
+
+    .question {
+        margin-bottom: 15px;
+    }
+
+    .scale label {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .scale label:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+    .scale input[type="radio"] {
+        display: none;
+    }
+
+    .scale input[type="radio"]:checked + label {
+        background-color: #b3d4fc;
+        border-color: #339af0;
+    }
+</style>
+
+<script>
+    var responses2 = {}; // To store responses from the second set
+    document.getElementById('form2').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Collect responses
+        responses2['family2'] = document.querySelector('input[name="family2"]:checked').value;
+        responses2['marriage2'] = document.querySelector('input[name="marriage2"]:checked').value;
+        // Add similar lines for other questions
+        // Handle submission logic
+    });
+</script>
+
+<!-- Second Set of Questions -->
+<div id="surveyPage2" class="hidden">
+    <h2> דרגו את מידת עקביות הפעולות שלכם עם הערכים בכל אחד מהתחומים הללו לפי השבוע האחרון בסולם של 1-10</h2>
+    <form id="form2">
+        <div>
+            <label for="family2">משפחה (מלבד נישואים או זוגיות):</label>
+            <input type="number" id="family2" name="family2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="marriage2">נישואים/זוגיות/יחסים:</label>
+            <input type="number" id="marriage2" name="marriage2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="parenting2">הורות:</label>
+            <input type="number" id="parenting2" name="parenting2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="friends2">חברים/חיי חברה:</label>
+            <input type="number" id="friends2" name="friends2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="work2">עבודה:</label>
+            <input type="number" id="work2" name="work2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="education2">השכלה:</label>
+            <input type="number" id="education2" name="education2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="fun2">בילוי/כיף:</label>
+            <input type="number" id="fun2" name="fun2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="spirit2">רוחניות:</label>
+            <input type="number" id="spirit2" name="spirit2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="commun2">קהילתיות:</label>
+            <input type="number" id="commun2" name="commun2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="health2">בריאות (אורח חיים, אימונים שינה):</label>
+            <input type="number" id="health2" name="health2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="envio2">איכות סביבה/בעיות אקלים:</label>
+            <input type="number" id="envio2" name="envio2" min="1" max="10" required>
+        </div>
+        <div>
+            <label for="art2">אומנות, ביטוי יצירתי, אסתטיקה:</label>
+            <input type="number" id="art2" name="art2" min="1" max="10" required>
+        </div>
+        <input type="submit" value="לעמוד הבא">
+    </form>
+</div>
+
+    <!-- Results Page -->
+<div id="resultsPage" class="hidden">
+    <h2>תוצאות</h2>
+    <canvas id="resultsChart"></canvas>
+</div>
+
+<script>
+    var responses1 = {}; // To store responses from the first set
+    var responses2 = {}; // To store responses from the second set
+    var questionKeys = ['family', 'marriage', 'parenting', 'friends', 'work', 'education', 'fun', 'spirit', 'commun', 'health', 'envio', 'art'];
+
+    document.getElementById('form1').addEventListener('submit', function(e) {
+        e.preventDefault();
+        questionKeys.forEach(function(key) {
+            responses1[key] = document.getElementById(key).value;
+        });
+        showPage('surveyPage2');
+    });
+
+    document.getElementById('form2').addEventListener('submit', function(e) {
+        e.preventDefault();
+        questionKeys.forEach(function(key) {
+            responses2[key] = document.getElementById(key + '2').value;
+        });
+        generateChart();
+        showPage('resultsPage');
+    });
+
+    function showPage(pageId) {
+        var pages = ['introPage', 'surveyPage1', 'surveyPage2', 'resultsPage'];
+        pages.forEach(function(page) {
+            document.getElementById(page).classList.add('hidden');
+        });
+        document.getElementById(pageId).classList.remove('hidden');
+    }
+
+    function generateChart() {
+        var labels = ['משפחה', 'נישואים/זוגיות/יחסים', 'הורות', 'חברים/חיי חברה', 'עבודה', 'השכלה', 'בילוי/כיף', 'רוחניות', 'קהילתיות', 'בריאות - אורח חיים, אימונים, שינה', 'איכות סביבה/בעיות אקלים', 'אומנות, ביטוי יצירתי, אסטתיקה'];
+        var data1 = questionKeys.map(key => responses1[key]);
+        var data2 = questionKeys.map(key => responses2[key]);
+
+        var ctx = document.getElementById('resultsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'כמה הערך חשוב',
+                    data: data1,
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)'
+                }, {
+                    label: 'מידת העקביות בשבוע האחרון',
+                    data: data2,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+</script>
