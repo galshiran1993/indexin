@@ -7,6 +7,28 @@
         .hidden { display: none; }
         form div { margin-bottom: 10px; }
         body { text-align: right; } 
+    .question .scale label {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .question .scale label:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+    .question .scale input[type="radio"] {
+        display: none;
+    }
+
+    .question .scale input[type="radio"]:checked + label {
+        background-color: #b3d4fc;
+        border-color: #339af0;
+    }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -25,156 +47,376 @@
 </div>
 
 
-<!-- Second Set of Questions -->
-<div id="surveyPage2" class="hidden">
-    <h2>דרגו את מידת עקביות הפעולות שלכם עם הערכים בכל אחד מהתחומים הללו לפי השבוע האחרון בסולם של 1-10</h2>
-    <form id="form2">
+<!-- First Set of Questions -->
+<div id="surveyPage1" class="hidden">
+    <h2>דרגו את רמת החשיבות של תחום החיים בעיניכם בסולם של 1-10</h2>
+    <form id="form1">
         <div class="question">
             <p>משפחה (מלבד נישואים או זוגיות):</p>
             <div class="scale">
-                <label><input type="radio" name="family2" value="1"> 1</label>
-                <label><input type="radio" name="family2" value="2"> 2</label>
-                <!-- Repeat labels for values 3 through 10 -->
-                <label><input type="radio" name="family2" value="3"> 3</label>
-                <label><input type="radio" name="family2" value="4"> 4</label>
-                <label><input type="radio" name="family2" value="5"> 5</label>
-                <label><input type="radio" name="family2" value="6"> 6</label>
-                <label><input type="radio" name="family2" value="7"> 7</label>
-                <label><input type="radio" name="family2" value="8"> 8</label>
-                <label><input type="radio" name="family2" value="9"> 9</label>
-                <label><input type="radio" name="family2" value="10"> 10</label>
+                <label><input type="radio" name="family" value="1"> 1</label>
+                <label><input type="radio" name="family" value="2"> 2</label>
+                <label><input type="radio" name="family" value="3"> 3</label>
+                <label><input type="radio" name="family" value="4"> 4</label>
+                <label><input type="radio" name="family" value="5"> 5</label>
+                <label><input type="radio" name="family" value="6"> 6</label>
+                <label><input type="radio" name="family" value="7"> 7</label>
+                <label><input type="radio" name="family" value="8"> 8</label>
+                <label><input type="radio" name="family" value="9"> 9</label>
+                <label><input type="radio" name="family" value="10"> 10</label>
             </div>
         </div>
         <div class="question">
             <p>נישואים/זוגיות/יחסים:</p>
             <div class="scale">
-                <label><input type="radio" name="marriage2" value="1"> 1</label>
-                <label><input type="radio" name="marriage2" value="2"> 2</label>
-                <!-- Repeat labels for values 3 through 10 -->
-                <label><input type="radio" name="marriage2" value="3"> 3</label>
-                <label><input type="radio" name="marriage2" value="4"> 4</label>
-                <label><input type="radio" name="marriage2" value="5"> 5</label>
-                <label><input type="radio" name="marriage2" value="6"> 6</label>
-                <label><input type="radio" name="marriage2" value="7"> 7</label>
-                <label><input type="radio" name="marriage2" value="8"> 8</label>
-                <label><input type="radio" name="marriage2" value="9"> 9</label>
-                <label><input type="radio" name="marriage2" value="10"> 10</label>
+                <label><input type="radio" name="marriage" value="1"> 1</label>
+                <label><input type="radio" name="marriage" value="2"> 2</label>
+                <label><input type="radio" name="marriage" value="3"> 3</label>
+                <label><input type="radio" name="marriage" value="4"> 4</label>
+                <label><input type="radio" name="marriage" value="5"> 5</label>
+                <label><input type="radio" name="marriage" value="6"> 6</label>
+                <label><input type="radio" name="marriage" value="7"> 7</label>
+                <label><input type="radio" name="marriage" value="8"> 8</label>
+                <label><input type="radio" name="marriage" value="9"> 9</label>
+                <label><input type="radio" name="marriage" value="10"> 10</label>
             </div>
         </div>
-        <!-- Repeat the structure for additional questions -->
         <div class="question">
             <p>הורות:</p>
             <div class="scale">
-                <!-- Radio inputs for values 1 through 10 -->
-                <label><input type="radio" name="parenting2" value="1"> 1</label>
-                <label><input type="radio" name="parenting2" value="2"> 2</label>
-                <!-- ... -->
-                <label><input type="radio" name="parenting2" value="10"> 10</label>
+                <label><input type="radio" name="parenting" value="1"> 1</label>
+                <label><input type="radio" name="parenting" value="2"> 2</label>
+                <label><input type="radio" name="parenting" value="3"> 3</label>
+                <label><input type="radio" name="parenting" value="4"> 4</label>
+                <label><input type="radio" name="parenting" value="5"> 5</label>
+                <label><input type="radio" name="parenting" value="6"> 6</label>
+                <label><input type="radio" name="parenting" value="7"> 7</label>
+                <label><input type="radio" name="parenting" value="8"> 8</label>
+                <label><input type="radio" name="parenting" value="9"> 9</label>
+                <label><input type="radio" name="parenting" value="10"> 10</label>
             </div>
         </div>
-        <!-- Additional questions structured similarly -->
-        <input type="submit" value="לעמוד הבא">
-    </form>
-</div>
+        <div class="question">
+            <p>חברים/חיי חברה:</p>
+            <div class="scale">
+                <label><input type="radio" name="friends" value="1"> 1</label>
+                <label><input type="radio" name="friends" value="2"> 2</label>
+                <label><input type="radio" name="friends" value="3"> 3</label>
+                <label><input type="radio" name="friends" value="4"> 4</label>
+                <label><input type="radio" name="friends" value="5"> 5</label>
+                <label><input type="radio" name="friends" value="6"> 6</label>
+                <label><input type="radio" name="friends" value="7"> 7</label>
+                <label><input type="radio" name="friends" value="8"> 8</label>
+                <label><input type="radio" name="friends" value="9"> 9</label>
+                <label><input type="radio" name="friends" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>עבודה:</p>
+            <div class="scale">
+                <label><input type="radio" name="work" value="1"> 1</label>
+                <label><input type="radio" name="work" value="2"> 2</label>
+                <label><input type="radio" name="work" value="3"> 3</label>
+                <label><input type="radio" name="work" value="4"> 4</label>
+                <label><input type="radio" name="work" value="5"> 5</label>
+                <label><input type="radio" name="work" value="6"> 6</label>
+                <label><input type="radio" name="work" value="7"> 7</label>
+                <label><input type="radio" name="work" value="8"> 8</label>
+                <label><input type="radio" name="work" value="9"> 9</label>
+                <label><input type="radio" name="work" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>השכלה:</p>
+            <div class="scale">
+                <label><input type="radio" name="education" value="1"> 1</label>
+                <label><input type="radio" name="education" value="2"> 2</label>
+                <label><input type="radio" name="education" value="3"> 3</label>
+                <label><input type="radio" name="education" value="4"> 4</label>
+                <label><input type="radio" name="education" value="5"> 5</label>
+                <label><input type="radio" name="education" value="6"> 6</label>
+                <label><input type="radio" name="education" value="7"> 7</label>
+                <label><input type="radio" name="education" value="8"> 8</label>
+                <label><input type="radio" name="education" value="9"> 9</label>
+                <label><input type="radio" name="education" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>בילוי/כיף:</p>
+            <div class="scale">
+                <label><input type="radio" name="fun" value="1"> 1</label>
+                <label><input type="radio" name="fun" value="2"> 2</label>
+                <label><input type="radio" name="fun" value="3"> 3</label>
+                <label><input type="radio" name="fun" value="4"> 4</label>
+                <label><input type="radio" name="fun" value="5"> 5</label>
+                <label><input type="radio" name="fun" value="6"> 6</label>
+                <label><input type="radio" name="fun" value="7"> 7</label>
+                <label><input type="radio" name="fun" value="8"> 8</label>
+                <label><input type="radio" name="fun" value="9"> 9</label>
+                <label><input type="radio" name="fun" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>רוחניוות:</p>
+            <div class="scale">
+                <label><input type="radio" name="spirit" value="1"> 1</label>
+                <label><input type="radio" name="spirit" value="2"> 2</label>
+                <label><input type="radio" name="spirit" value="3"> 3</label>
+                <label><input type="radio" name="spirit" value="4"> 4</label>
+                <label><input type="radio" name="spirit" value="5"> 5</label>
+                <label><input type="radio" name="spirit" value="6"> 6</label>
+                <label><input type="radio" name="spirit" value="7"> 7</label>
+                <label><input type="radio" name="spirit" value="8"> 8</label>
+                <label><input type="radio" name="spirit" value="9"> 9</label>
+                <label><input type="radio" name="spirit" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>קהילתיות:</p>
+            <div class="scale">
+                <label><input type="radio" name="commun" value="1"> 1</label>
+                <label><input type="radio" name="commun" value="2"> 2</label>
+                <label><input type="radio" name="commun" value="3"> 3</label>
+                <label><input type="radio" name="commun" value="4"> 4</label>
+                <label><input type="radio" name="commun" value="5"> 5</label>
+                <label><input type="radio" name="commun" value="6"> 6</label>
+                <label><input type="radio" name="commun" value="7"> 7</label>
+                <label><input type="radio" name="commun" value="8"> 8</label>
+                <label><input type="radio" name="commun" value="9"> 9</label>
+                <label><input type="radio" name="commun" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>בריאות (אורח חיים, אימונים, שינה):</p>
+            <div class="scale">
+                <label><input type="radio" name="health" value="1"> 1</label>
+                <label><input type="radio" name="health" value="2"> 2</label>
+                <label><input type="radio" name="health" value="3"> 3</label>
+                <label><input type="radio" name="health" value="4"> 4</label>
+                <label><input type="radio" name="health" value="5"> 5</label>
+                <label><input type="radio" name="health" value="6"> 6</label>
+                <label><input type="radio" name="health" value="7"> 7</label>
+                <label><input type="radio" name="health" value="8"> 8</label>
+                <label><input type="radio" name="health" value="9"> 9</label>
+                <label><input type="radio" name="health" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>איכות סביבה/בעיות אקלים:</p>
+            <div class="scale">
+                <label><input type="radio" name="envio" value="1"> 1</label>
+                <label><input type="radio" name="envio" value="2"> 2</label>
+                <label><input type="radio" name="envio" value="3"> 3</label>
+                <label><input type="radio" name="envio" value="4"> 4</label>
+                <label><input type="radio" name="envio" value="5"> 5</label>
+                <label><input type="radio" name="envio" value="6"> 6</label>
+                <label><input type="radio" name="envio" value="7"> 7</label>
+                <label><input type="radio" name="envio" value="8"> 8</label>
+                <label><input type="radio" name="envio" value="9"> 9</label>
+                <label><input type="radio" name="envio" value="10"> 10</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>אומנות, ביטוי יצירתי, אסתטיקה:</p>
+            <div class="scale">
+                <label><input type="radio" name="art" value="1"> 1</label>
+                <label><input type="radio" name="art" value="2"> 2</label>
+                <label><input type="radio" name="art" value="3"> 3</label>
+                <label><input type="radio" name="art" value="4"> 4</label>
+                <label><input type="radio" name="art" value="5"> 5</label>
+                <label><input type="radio" name="art" value="6"> 6</label>
+                <label><input type="radio" name="art" value="7"> 7</label>
+                <label><input type="radio" name="art" value="8"> 8</label>
+                <label><input type="radio" name="art" value="9"> 9</label>
+                <label><input type="radio" name="art" value="10"> 10</label>
+            </div>
+        </div>
 
-<style>
-    .hidden { display: none; }
-    body { text-align: right; } 
-
-    .question {
-        margin-bottom: 15px;
-    }
-
-    .scale label {
-        display: inline-block;
-        margin: 0 5px;
-        padding: 5px;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-
-    .scale label:hover {
-        background-color: #f0f0f0;
-        cursor: pointer;
-    }
-
-    .scale input[type="radio"] {
-        display: none;
-    }
-
-    .scale input[type="radio"]:checked + label {
-        background-color: #b3d4fc;
-        border-color: #339af0;
-    }
-</style>
-
-<script>
-    var responses2 = {}; // To store responses from the second set
-    document.getElementById('form2').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Collect responses
-        responses2['family2'] = document.querySelector('input[name="family2"]:checked').value;
-        responses2['marriage2'] = document.querySelector('input[name="marriage2"]:checked').value;
-        // Add similar lines for other questions
-        // Handle submission logic
-    });
-</script>
 
 <!-- Second Set of Questions -->
 <div id="surveyPage2" class="hidden">
     <h2> דרגו את מידת עקביות הפעולות שלכם עם הערכים בכל אחד מהתחומים הללו לפי השבוע האחרון בסולם של 1-10</h2>
     <form id="form2">
-        <div>
-            <label for="family2">משפחה (מלבד נישואים או זוגיות):</label>
-            <input type="number" id="family2" name="family2" min="1" max="10" required>
+        <div class="question">
+            <p>משפחה (מלבד נישואים או זוגיות):</p>
+            <div class="scale">
+                <label><input type="radio" name="family" value="1"> 1</label>
+                <label><input type="radio" name="family" value="2"> 2</label>
+                <label><input type="radio" name="family" value="3"> 3</label>
+                <label><input type="radio" name="family" value="4"> 4</label>
+                <label><input type="radio" name="family" value="5"> 5</label>
+                <label><input type="radio" name="family" value="6"> 6</label>
+                <label><input type="radio" name="family" value="7"> 7</label>
+                <label><input type="radio" name="family" value="8"> 8</label>
+                <label><input type="radio" name="family" value="9"> 9</label>
+                <label><input type="radio" name="family" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="marriage2">נישואים/זוגיות/יחסים:</label>
-            <input type="number" id="marriage2" name="marriage2" min="1" max="10" required>
+        <div class="question">
+            <p>נישואים/זוגיות/יחסים:</p>
+            <div class="scale">
+                <label><input type="radio" name="marriage" value="1"> 1</label>
+                <label><input type="radio" name="marriage" value="2"> 2</label>
+                <label><input type="radio" name="marriage" value="3"> 3</label>
+                <label><input type="radio" name="marriage" value="4"> 4</label>
+                <label><input type="radio" name="marriage" value="5"> 5</label>
+                <label><input type="radio" name="marriage" value="6"> 6</label>
+                <label><input type="radio" name="marriage" value="7"> 7</label>
+                <label><input type="radio" name="marriage" value="8"> 8</label>
+                <label><input type="radio" name="marriage" value="9"> 9</label>
+                <label><input type="radio" name="marriage" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="parenting2">הורות:</label>
-            <input type="number" id="parenting2" name="parenting2" min="1" max="10" required>
+        <div class="question">
+            <p>הורות:</p>
+            <div class="scale">
+                <label><input type="radio" name="parenting" value="1"> 1</label>
+                <label><input type="radio" name="parenting" value="2"> 2</label>
+                <label><input type="radio" name="parenting" value="3"> 3</label>
+                <label><input type="radio" name="parenting" value="4"> 4</label>
+                <label><input type="radio" name="parenting" value="5"> 5</label>
+                <label><input type="radio" name="parenting" value="6"> 6</label>
+                <label><input type="radio" name="parenting" value="7"> 7</label>
+                <label><input type="radio" name="parenting" value="8"> 8</label>
+                <label><input type="radio" name="parenting" value="9"> 9</label>
+                <label><input type="radio" name="parenting" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="friends2">חברים/חיי חברה:</label>
-            <input type="number" id="friends2" name="friends2" min="1" max="10" required>
+        <div class="question">
+            <p>חברים/חיי חברה:</p>
+            <div class="scale">
+                <label><input type="radio" name="friends" value="1"> 1</label>
+                <label><input type="radio" name="friends" value="2"> 2</label>
+                <label><input type="radio" name="friends" value="3"> 3</label>
+                <label><input type="radio" name="friends" value="4"> 4</label>
+                <label><input type="radio" name="friends" value="5"> 5</label>
+                <label><input type="radio" name="friends" value="6"> 6</label>
+                <label><input type="radio" name="friends" value="7"> 7</label>
+                <label><input type="radio" name="friends" value="8"> 8</label>
+                <label><input type="radio" name="friends" value="9"> 9</label>
+                <label><input type="radio" name="friends" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="work2">עבודה:</label>
-            <input type="number" id="work2" name="work2" min="1" max="10" required>
+        <div class="question">
+            <p>עבודה:</p>
+            <div class="scale">
+                <label><input type="radio" name="work" value="1"> 1</label>
+                <label><input type="radio" name="work" value="2"> 2</label>
+                <label><input type="radio" name="work" value="3"> 3</label>
+                <label><input type="radio" name="work" value="4"> 4</label>
+                <label><input type="radio" name="work" value="5"> 5</label>
+                <label><input type="radio" name="work" value="6"> 6</label>
+                <label><input type="radio" name="work" value="7"> 7</label>
+                <label><input type="radio" name="work" value="8"> 8</label>
+                <label><input type="radio" name="work" value="9"> 9</label>
+                <label><input type="radio" name="work" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="education2">השכלה:</label>
-            <input type="number" id="education2" name="education2" min="1" max="10" required>
+        <div class="question">
+            <p>השכלה:</p>
+            <div class="scale">
+                <label><input type="radio" name="education" value="1"> 1</label>
+                <label><input type="radio" name="education" value="2"> 2</label>
+                <label><input type="radio" name="education" value="3"> 3</label>
+                <label><input type="radio" name="education" value="4"> 4</label>
+                <label><input type="radio" name="education" value="5"> 5</label>
+                <label><input type="radio" name="education" value="6"> 6</label>
+                <label><input type="radio" name="education" value="7"> 7</label>
+                <label><input type="radio" name="education" value="8"> 8</label>
+                <label><input type="radio" name="education" value="9"> 9</label>
+                <label><input type="radio" name="education" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="fun2">בילוי/כיף:</label>
-            <input type="number" id="fun2" name="fun2" min="1" max="10" required>
+        <div class="question">
+            <p>בילוי/כיף:</p>
+            <div class="scale">
+                <label><input type="radio" name="fun" value="1"> 1</label>
+                <label><input type="radio" name="fun" value="2"> 2</label>
+                <label><input type="radio" name="fun" value="3"> 3</label>
+                <label><input type="radio" name="fun" value="4"> 4</label>
+                <label><input type="radio" name="fun" value="5"> 5</label>
+                <label><input type="radio" name="fun" value="6"> 6</label>
+                <label><input type="radio" name="fun" value="7"> 7</label>
+                <label><input type="radio" name="fun" value="8"> 8</label>
+                <label><input type="radio" name="fun" value="9"> 9</label>
+                <label><input type="radio" name="fun" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="spirit2">רוחניות:</label>
-            <input type="number" id="spirit2" name="spirit2" min="1" max="10" required>
+        <div class="question">
+            <p>רוחניוות:</p>
+            <div class="scale">
+                <label><input type="radio" name="spirit" value="1"> 1</label>
+                <label><input type="radio" name="spirit" value="2"> 2</label>
+                <label><input type="radio" name="spirit" value="3"> 3</label>
+                <label><input type="radio" name="spirit" value="4"> 4</label>
+                <label><input type="radio" name="spirit" value="5"> 5</label>
+                <label><input type="radio" name="spirit" value="6"> 6</label>
+                <label><input type="radio" name="spirit" value="7"> 7</label>
+                <label><input type="radio" name="spirit" value="8"> 8</label>
+                <label><input type="radio" name="spirit" value="9"> 9</label>
+                <label><input type="radio" name="spirit" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="commun2">קהילתיות:</label>
-            <input type="number" id="commun2" name="commun2" min="1" max="10" required>
+        <div class="question">
+            <p>קהילתיות:</p>
+            <div class="scale">
+                <label><input type="radio" name="commun" value="1"> 1</label>
+                <label><input type="radio" name="commun" value="2"> 2</label>
+                <label><input type="radio" name="commun" value="3"> 3</label>
+                <label><input type="radio" name="commun" value="4"> 4</label>
+                <label><input type="radio" name="commun" value="5"> 5</label>
+                <label><input type="radio" name="commun" value="6"> 6</label>
+                <label><input type="radio" name="commun" value="7"> 7</label>
+                <label><input type="radio" name="commun" value="8"> 8</label>
+                <label><input type="radio" name="commun" value="9"> 9</label>
+                <label><input type="radio" name="commun" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="health2">בריאות (אורח חיים, אימונים שינה):</label>
-            <input type="number" id="health2" name="health2" min="1" max="10" required>
+        <div class="question">
+            <p>בריאות (אורח חיים, אימונים, שינה):</p>
+            <div class="scale">
+                <label><input type="radio" name="health" value="1"> 1</label>
+                <label><input type="radio" name="health" value="2"> 2</label>
+                <label><input type="radio" name="health" value="3"> 3</label>
+                <label><input type="radio" name="health" value="4"> 4</label>
+                <label><input type="radio" name="health" value="5"> 5</label>
+                <label><input type="radio" name="health" value="6"> 6</label>
+                <label><input type="radio" name="health" value="7"> 7</label>
+                <label><input type="radio" name="health" value="8"> 8</label>
+                <label><input type="radio" name="health" value="9"> 9</label>
+                <label><input type="radio" name="health" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="envio2">איכות סביבה/בעיות אקלים:</label>
-            <input type="number" id="envio2" name="envio2" min="1" max="10" required>
+        <div class="question">
+            <p>איכות סביבה/בעיות אקלים:</p>
+            <div class="scale">
+                <label><input type="radio" name="envio" value="1"> 1</label>
+                <label><input type="radio" name="envio" value="2"> 2</label>
+                <label><input type="radio" name="envio" value="3"> 3</label>
+                <label><input type="radio" name="envio" value="4"> 4</label>
+                <label><input type="radio" name="envio" value="5"> 5</label>
+                <label><input type="radio" name="envio" value="6"> 6</label>
+                <label><input type="radio" name="envio" value="7"> 7</label>
+                <label><input type="radio" name="envio" value="8"> 8</label>
+                <label><input type="radio" name="envio" value="9"> 9</label>
+                <label><input type="radio" name="envio" value="10"> 10</label>
+            </div>
         </div>
-        <div>
-            <label for="art2">אומנות, ביטוי יצירתי, אסתטיקה:</label>
-            <input type="number" id="art2" name="art2" min="1" max="10" required>
+        <div class="question">
+            <p>אומנות, ביטוי יצירתי, אסתטיקה:</p>
+            <div class="scale">
+                <label><input type="radio" name="art" value="1"> 1</label>
+                <label><input type="radio" name="art" value="2"> 2</label>
+                <label><input type="radio" name="art" value="3"> 3</label>
+                <label><input type="radio" name="art" value="4"> 4</label>
+                <label><input type="radio" name="art" value="5"> 5</label>
+                <label><input type="radio" name="art" value="6"> 6</label>
+                <label><input type="radio" name="art" value="7"> 7</label>
+                <label><input type="radio" name="art" value="8"> 8</label>
+                <label><input type="radio" name="art" value="9"> 9</label>
+                <label><input type="radio" name="art" value="10"> 10</label>
+            </div>
         </div>
-        <input type="submit" value="לעמוד הבא">
-    </form>
-</div>
 
     <!-- Results Page -->
 <div id="resultsPage" class="hidden">
